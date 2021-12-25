@@ -1,0 +1,55 @@
+{% extends 'layout.html' %}
+
+<div class="contanier">
+{% block body %}
+<div class="container mt-3">
+<h1><small><i>Product Movement</i></small></h1>
+<a class="btn btn-success" href="/AddMovement">Add New Movement</a>
+<a href="/deleteAllMovement" class="btn btn-danger">Delete All Movement</a>
+<br><br>
+<div class="w-25 p-3">
+<table class="table table-striped table-bordered text-center table-hover">
+    <thead>
+      <tr>
+      
+        <th scope="col" class="text-center text-warning">Id</th>
+        <th scope="col" class="text-center text-warning">From Location</th>
+        <th scope="col" class="text-center text-warning">To Location</th>
+        <th scope="col" class="text-center text-warning">Product</th>
+        <th scope="col" class="text-center text-warning">quantity</th>
+        <th scope="col" class="text-center text-warning"></th>
+      </tr>
+    </thead>
+    
+    <tbody>
+        {% for item in entries %}
+        <tr>
+            
+            <td>{{item.id}}</td>
+            {% if item.fromLocation ==0 %}
+            <td class="text-danger">-----------</td>
+            {% else %}
+            <td>{{item.fromLocation}}</td>
+            {% endif %}
+            {% if item.toLocation ==0 %}
+            <td class="text-danger">-----------</td>
+            {% else %}
+            <td>{{item.toLocation}}</td>
+            {% endif %}
+            <td>{{item.productId}}</td>
+            <td>{{item.quantity}}</td>
+            <td>
+                <a href="/editProductMovement/{{item.id}}" class="btn btn-info" title="Edit Location"><i class="fas fa-edit"></i></a>
+                <a href="/viewProductMovement/{{item.id}}" class="btn btn-success" title="View Location"><i class="fal fa-eye"></i></a>
+            </td>
+         
+          </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+
+</div>
+
+{% endblock %}
+</div>

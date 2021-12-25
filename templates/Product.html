@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+<div class="contanier">
+{% block body %}
+<div class="container mt-3">
+<h1><small><i>Product List</i></small></h1>
+<a class="btn btn-success" href="/AddProduct">Add New Product</a>
+<br><br>
+<div class="w-25 p-3">
+<table class="table table-striped table-bordered text-center table-hover">
+    <thead>
+      <tr>
+         
+        <th scope="col" class="text-center text-warning">Id</th>
+        <th scope="col" class="text-center text-warning">Product Name</th>
+        <th scope="col" class="text-center text-warning"></th>
+    
+      </tr>
+    </thead>
+    
+    <tbody>
+        {% for item in entries %}
+        <tr>
+           
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>
+                <a href="/editProduct/{{item.id}}" class="btn btn-info" title="Edit Product"><i class="fas fa-edit"></i></a>
+                <a href="/viewProduct/{{item.id}}" class="btn btn-success" title="View Product"><i class="fal fa-eye"></i></a>
+            </td>
+         
+          </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+</div>
+
+
+{% endblock %}
+</div>

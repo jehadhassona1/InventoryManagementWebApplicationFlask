@@ -1,0 +1,49 @@
+
+{% extends 'layout.html' %}
+
+<div class="contanier">
+{% block body %}
+<div class="container mt-3">
+<div class="w-25 p-3">
+    
+  
+    <form action="http://127.0.0.1:5000/submitMovement" method="post">
+        <fieldset style="background-color: #eeeeee;padding:30px">
+            <h1 class="text-center "><small class="text-info"><u><i><b>New Movement</b></i></u></small></h1>
+        <label>Product Name </label>
+        <select class="form-control selcls" name="product" id="product">
+          <option value="0" SELECTED>----------select Product----------</option>
+            {% for pitem in product %}
+            <option value="{{pitem.id}}">{{pitem.name}}</option>
+            {% endfor %}
+          </select>
+        <br>
+        <label>From Location</label>
+        <select class="form-control selcls" name="fromLocation" id="fromLocation">
+          <option value="0" SELECTED>----------select Location----------</option>
+            {% for fitem in location %}
+            <option value='{{fitem.id}}'>{{fitem.name}}</option>
+            {% endfor %}
+          </select>
+          <br>
+          <label style="margin-left:10px;" >To Location</label>
+        <select class="form-control selcls" name="toLocation" id="toLocation">
+          <option value="0" SELECTED>----------select Location----------</option>
+            {% for titem in location %}
+            <option value="{{titem.id}}">{{titem.name}}</option>
+            {% endfor %}
+          </select>
+          <br>
+          <label>Quantity</label>
+          <input type="number" name="quantity" id="quantity">
+          <br><br>
+        <input class="btn btn-success" type="submit" value="Submit">
+      <a href="http://127.0.0.1:5000/ProductMovement" style="margin-left:10px;" class="btn btn-danger">Go Back</a>
+    </fieldset>
+    </form>
+</div>
+<!--<a class="btn btn-primary" href="http://127.0.0.1:5000/Product">Product Page</a>
+-->
+</div>
+{% endblock %}
+</div>

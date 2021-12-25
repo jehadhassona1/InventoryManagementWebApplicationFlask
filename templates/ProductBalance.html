@@ -1,0 +1,39 @@
+{% extends 'layout.html' %}
+
+<div class="contanier">
+{% block body %}
+<div class="container mt-3">
+<h1><small><i>Product Balance</i></small></h1>
+<br><br>
+<div class="w-25 p-3">
+  <table class="table table-striped table-bordered text-center table-hover">
+        
+    <tr>
+      <th></th>
+     {% for location in all_Location  %}
+    <th scope="col" class="text-center text-primary">{{location.name}}</th>
+    {% endfor %}
+  
+  </tr>
+    
+
+    {% for i in range(Lenght) %}
+      <tr>
+        <th class="text-center text-warning">{{all_Product[i].name}}</th>
+        {% for item in all_Location %}
+        <td>{{ data[i][loop.index] }}</td>
+        {% endfor %}
+       
+      </tr>
+    {% endfor %}
+    
+  
+  </table>
+
+
+</div>
+</div>
+
+
+{% endblock %}
+</div>

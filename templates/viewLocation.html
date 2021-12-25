@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+<div class="contanier">
+{% block body %}
+<div class="container mt-3">
+<div class="w-25 p-3">
+   
+
+    <form >
+        <fieldset style="background-color: #eeeeee;padding:30px">
+            <h1 class="text-center"><small class="text-info"><u><i><b>View  Location</b></i></u></small></h1>
+            <label>Product Name </label>
+            <input readonly type="text" name="name" id="name" value="{{name}}">
+            <input type="hidden" name="id" id="id" value="{{id}}">
+            <br><br>
+           
+        <a href="http://127.0.0.1:5000/Location" style="margin-left:10px;" class="btn btn-danger">Go Back</a>
+        </fieldset>
+    </form>
+</div>
+
+</div>
+{% endblock %}
+</div>
